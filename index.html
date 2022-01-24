@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+  >
+  <meta
+    http-equiv="X-UA-Compatible"
+    content="ie=edge"
+  >
+  <title>Document</title>
+</head>
+<body>
+<bootstrap_button
+  class="btn btn-default some-class"
+  type="submit"
+>
+  Some Text1
+</bootstrap_button>
+<bootstrap_button
+  class="btn btn-default some-class"
+  type="submit"
+  data-text="123"
+>
+  Some Text2
+</bootstrap_button>
+</body>
+<script src="./src/templater.js"></script>
+
+<script>
+  Templater.addTag(
+    'bootstrap_button',
+    '<button class="{{class}}" type="{{type}}">' +
+    '{{html}}' +
+    '</button>',
+  );
+</script>
+</html>
