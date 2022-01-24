@@ -40,9 +40,7 @@ const Templater = {
   $.fn.templater = run;
 
   function run({ tags }) {
-    let [currentTag] = this.children();
-    let text = this.children().text().trim();
-
+    const text = this.children().text().trim();
     $(this.children()).each(function() {
       $.each(this.attributes, function() {
         if(this.specified) {
@@ -50,9 +48,6 @@ const Templater = {
         }
       });
     });
-    // Object.values(currentTag.attributes).forEach(attr => {
-    //   tags.button = tags.button.replace(`{{${attr.localName}}}`, attr.value);
-    // });
     this.html(tags.button.replace(/{{(.*?)}}/, text || 'Some Text'))
   }
 })(jQuery);
