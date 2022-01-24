@@ -7,10 +7,13 @@ const Templater = {
   },
   //step 2,3
   tags: [],
+  buttonsText:[],
   addTag: function (tag, template) {
-    [...document.querySelectorAll(`${tag}`)].forEach(el => {
+    [...document.querySelectorAll(`${tag}`)].forEach((el,index) => {
       let currentTemplate = template;
       const attrList = [...el.attributes];
+
+      this.buttonsText.push(el.innerText)
 
       attrList.forEach(attr => {
         if(currentTemplate.indexOf(attr.localName) === -1){
@@ -20,7 +23,7 @@ const Templater = {
         }
         currentTemplate = currentTemplate.replace(`{{${attr.localName}}}`, attr.value );
       });
-      currentTemplate = currentTemplate.replace(`{{html}}`, `${el.innerHTML === '{{html}}' ? el.innerHTML : 'Some Text'}`);
+      currentTemplate = currentTemplate.replace(`{{html}}`, !this.buttonsText[index] ? 'Some Text'  : this.buttonsText[index] );
       this.tags.push({
         element: el,
         template: currentTemplate,
