@@ -22,9 +22,8 @@
   Some Text1
 </bootstrap_button>
 <bootstrap_button
-  class="btn btn-default some-class"
-  type="submit"
   data-text="123"
+  twes="sadasd"
 >
   Some Text2
 </bootstrap_button>
@@ -34,7 +33,7 @@
 <script>
   Templater.addTag(
     'bootstrap_button',
-    '<button class="{{class}}" type="{{type}}">' +
+    '<button>' +
     '{{html}}' +
     '</button>',
   );
