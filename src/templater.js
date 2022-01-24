@@ -8,11 +8,11 @@ const Templater = {
   //step 2,3
   tags: [],
   addTag: function (tag, template) {
-    [...document.querySelectorAll(`${tag}`)].map(el => {
+    [...document.querySelectorAll(`${tag}`)].forEach(el => {
       let currentTemplate = template;
       let attrList = [...el.attributes];
 
-      attrList.map(attr => {
+      attrList.forEach(attr => {
         currentTemplate = currentTemplate.replace(`{{${attr.localName}}}`, attr.value);
         currentTemplate = currentTemplate.replace(`{{html}}`, `${el.innerHTML === '{{html}}' ? el.innerHTML : 'Some Text'}`);
       });
