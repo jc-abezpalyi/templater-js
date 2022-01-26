@@ -17,7 +17,7 @@ const Templater = {
 
       attrList.forEach(attr => {
         if (!currentTemplate.includes(attr.localName)) {
-          let addAttr = currentTemplate.split('>');
+          const addAttr = currentTemplate.split('>');
 
           addAttr[0] = `${addAttr[0]} ${attr.localName}="${attr.value}"`;
           currentTemplate = addAttr.join('>');
