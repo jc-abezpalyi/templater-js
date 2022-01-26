@@ -31,7 +31,7 @@ const Templater = {
     });
   },
   render: (template, element) => {
-    element.innerHTML = template;
+    element.outerHTML = template;
   },
 };
 //   //step 4,5
