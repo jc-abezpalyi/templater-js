@@ -13,7 +13,7 @@ const Templater = {
       let currentTemplate = template;
       const attrList = [...el.attributes];
 
-      this.buttonsText.push(el.innerText);
+      this.buttonsText.push(el.innerHTML);
 
       attrList.forEach(attr => {
         if (!currentTemplate.includes(attr.localName)) {
@@ -31,7 +31,7 @@ const Templater = {
     });
   },
   render: (template, element) => {
-    element.outerHTML = template;
+    element.innerHTML = template;
   },
 };
 //   //step 4,5
